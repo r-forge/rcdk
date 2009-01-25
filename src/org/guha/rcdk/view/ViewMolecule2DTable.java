@@ -8,6 +8,7 @@ import org.guha.rcdk.view.table.StructureTableModel;
 import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -144,6 +145,7 @@ public class ViewMolecule2DTable {
             IAtomContainer[] v = new IAtomContainer[molecules.length];
             for (int i = 0; i < v.length; i++) {
                 CDKHueckelAromaticityDetector.detectAromaticity(v[i]);
+                v[i] = AtomContainerManipulator.removeHydrogens(v[i]);
                 v[i] = Misc.getMoleculeWithCoordinates(molecules[i]);
             }
 

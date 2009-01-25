@@ -6,8 +6,10 @@ import org.guha.rcdk.view.panels.Render2DPanel;
 import org.guha.rcdk.view.table.MyTable;
 import org.guha.rcdk.view.table.StructureTableCellEditor2D;
 import org.guha.rcdk.view.table.StructureTableCellRenderer2D;
+import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -94,7 +96,16 @@ public class ViewMolecule2DDataTable {
         Object[][] data = new Object[molecules.length][cnames.length];
 
         for (int i = 0; i < molecules.length; i++) {
-            data[i][0] = new Render2DPanel(molecules[i], this.cellx, this.celly, false);
+            try {
+                CDKHueckelAromaticityDetector.detectAromaticity(molecules[i]);
+                molecules[i] = Misc.getMoleculeWithCoordinates(molecules[i]);
+                molecules[i] = AtomContainerManipulator.removeHydrogens(molecules[i]);
+            } catch (CDKException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (Exception e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+            data[i][0] = new Render2DPanel(molecules[i], null, this.cellx, this.celly, false);
         }
         // set the data
         for (int i = 0; i < molecules.length; i++) {
@@ -248,7 +259,7 @@ public class ViewMolecule2DDataTable {
 
 
     public static void main(String[] args) {
-        String home = "/home/rguha/";
+        String home = "/Users/rguha/";
         String[] fname = {home + "src/R/trunk/rcdk/data/dan001.sdf",
                 home + "src/R/trunk/rcdk/data/dan002.sdf",
                 home + "src/R/trunk/rcdk/data/dan003.sdf"};

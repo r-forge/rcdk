@@ -1,14 +1,14 @@
 package org.guha.rcdk.view.panels;
 
-import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
-import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.geometry.GeometryTools;
+import org.openscience.cdk.DefaultChemObjectBuilder;
+import org.openscience.cdk.controller.ControllerHub;
+import org.openscience.cdk.controller.ControllerModel;
+import org.openscience.cdk.controller.IViewEventRelay;
 import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.interfaces.IChemModel;
 import org.openscience.cdk.interfaces.IMolecule;
-import org.openscience.cdk.layout.StructureDiagramGenerator;
-import org.openscience.cdk.renderer.Java2DRenderer;
-import org.openscience.cdk.renderer.Renderer2DModel;
-import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
+import org.openscience.cdk.interfaces.IMoleculeSet;
+import org.openscience.cdk.renderer.IntermediateRenderer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,60 +16,155 @@ import java.awt.*;
 /**
  * @author Rajarshi Guha
  */
-public class Render2DPanel extends JPanel {
-    IAtomContainer mol;
-    boolean withHydrogen = true;
-
-    Renderer2DModel r2dm;
-    Java2DRenderer renderer;
+public class Render2DPanel extends JPanel implements IViewEventRelay {
+    private IntermediateRenderer renderer;
+    private boolean isNewChemModel;
+    private ControllerHub hub;
+    private ControllerModel controllerModel;
+    private boolean shouldPaintFromCache;
+    IMolecule molecule;
+    boolean fitToScreen = true;
 
     public Render2DPanel() {
     }
 
-    public Render2DPanel(IAtomContainer mol, int x, int y, boolean withHydrogen) {
-        this.mol = AtomContainerManipulator.removeHydrogens(mol);
-        try {
-            CDKHueckelAromaticityDetector.detectAromaticity(this.mol);
-        } catch (CDKException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+    /**
+     * Create an instance of the rendering panel.
+     * <p/>
+     * This is a simplified constructor that uses defaults for the molecule
+     * title and activity. Also it does not allow one to highlight substructures.
+     *
+     * @param mol molecule to render. Should have 2D coordinates
+     * @param x   width of the panel
+     * @param y   height of the panel
+     */
+    public Render2DPanel(IAtomContainer mol, int x, int y) {
+        this(mol, null, x, y, false);
+    }
+
+    /**
+     * Create an instance of the rendering panel.
+     *
+     * @param mol          molecule to render. Should have 2D coordinates
+     * @param needle       A fragment representing a substructure of the above molecule.
+     *                     This substructure will be highlighted in the depiction. If no substructure
+     *                     is to be highlighted, then set this to null
+     * @param x            width of the panel
+     * @param y            height of the panel
+     * @param withHydrogen Should hydrogens be displayed
+     */
+    public Render2DPanel(IAtomContainer mol, IAtomContainer needle, int x, int y,
+                         boolean withHydrogen) {
+        this.molecule = (IMolecule) mol;
+
+        setPreferredSize(new Dimension(x, y));
+        setBackground(Color.WHITE);
+
+        IMoleculeSet moleculeSet = DefaultChemObjectBuilder.getInstance().newMoleculeSet();
+        moleculeSet.addMolecule(this.molecule);
+        IChemModel chemModel = DefaultChemObjectBuilder.getInstance().newChemModel();
+        chemModel.setMoleculeSet(moleculeSet);
+
+        renderer = new IntermediateRenderer();
+        renderer.setFitToScreen(true);
+        controllerModel = new ControllerModel();
+        hub = new ControllerHub(controllerModel, renderer, chemModel, this);
+
+        hub.getIJava2DRenderer().getRenderer2DModel().setShowAromaticity(true);
+        hub.getIJava2DRenderer().getRenderer2DModel().setUseAntiAliasing(true);
+        hub.getIJava2DRenderer().getRenderer2DModel().setIsCompact(false);
+
+        isNewChemModel = true;
+
+    }
+
+    public Image takeSnapshot() {
+        return this.takeSnapshot(this.getBounds());
+    }
+
+    public Image takeSnapshot(Rectangle bounds) {
+        Image image = GraphicsEnvironment
+                .getLocalGraphicsEnvironment()
+                .getScreenDevices()[0]
+                .getDefaultConfiguration()
+                .createCompatibleImage(bounds.width, bounds.height);
+        Graphics2D g = (Graphics2D) image.getGraphics();
+        super.paint(g);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
+        this.paintChemModel(g, bounds);
+        return image;
+    }
+
+    public void paintChemModel(Graphics2D g, Rectangle screenBounds) {
+
+        IChemModel chemModel = hub.getIChemModel();
+        if (chemModel != null && chemModel.getMoleculeSet() != null) {
+
+            // determine the size the canvas needs to be in order to fit the model
+            Rectangle diagramBounds = renderer.calculateScreenBounds(chemModel);
+            if (this.overlaps(screenBounds, diagramBounds)) {
+                Rectangle union = screenBounds.union(diagramBounds);
+                this.setPreferredSize(union.getSize());
+                this.revalidate();
+            }
+            this.paintChemModel(chemModel, g, screenBounds);
         }
+    }
 
-        r2dm = new Renderer2DModel();
-        renderer = new Java2DRenderer(r2dm);
-        Dimension screenSize = new Dimension(x, y);
-        setPreferredSize(screenSize);
-        r2dm.setBackgroundDimension(screenSize); // make sure it is synched with the JPanel size
-        setBackground(r2dm.getBackColor());
+    private boolean overlaps(Rectangle screenBounds, Rectangle diagramBounds) {
+        return screenBounds.getMinX() > diagramBounds.getMinX()
+                || screenBounds.getMinY() > diagramBounds.getMinY()
+                || screenBounds.getMaxX() < diagramBounds.getMaxX()
+                || screenBounds.getMaxY() < diagramBounds.getMaxY();
+    }
 
-        this.withHydrogen = withHydrogen;
+    private void paintChemModel(IChemModel chemModel, Graphics2D g, Rectangle bounds) {
+        renderer.paintChemModel(chemModel, g, bounds, isNewChemModel);
+        isNewChemModel = false;
 
-        try {
-            StructureDiagramGenerator sdg = new StructureDiagramGenerator();
-            sdg.setMolecule((IMolecule) this.mol);
-            sdg.generateCoordinates();
-            this.mol = sdg.getMolecule();
+        /*
+        * This is dangerous, but necessary to allow fast
+* repainting when scrolling the canvas.
+*
+* I set this to false, but the original code has it set to true.
+* If set to true, then any change in dimensions requires a call to
+* updateView() - by setting to false, we don't need to call updateView()
+*/
+        this.shouldPaintFromCache = false;
+    }
 
-            r2dm.setDrawNumbers(false);
-            r2dm.setUseAntiAliasing(true);
-            r2dm.setColorAtomsByType(true);
-            r2dm.setShowImplicitHydrogens(true);
-            r2dm.setShowAromaticity(true);
-            r2dm.setShowReactionBoxes(false);
-            r2dm.setKekuleStructure(false);
-
-            GeometryTools.translateAllPositive(this.mol);
-            GeometryTools.scaleMolecule(this.mol, getPreferredSize(), 0.8);
-            GeometryTools.center(this.mol, getPreferredSize());
-
-        }
-        catch (Exception exc) {
-            exc.printStackTrace();
-        }
+    public void setIsNewChemModel(boolean isNewChemModel) {
+        this.isNewChemModel = isNewChemModel;
     }
 
     public void paint(Graphics g) {
+        assert (molecule != null);
+
+        this.setBackground(renderer.getRenderer2DModel().getBackColor());
         super.paint(g);
-        renderer.paintMolecule(mol, (Graphics2D) g, getBounds());
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        if (this.shouldPaintFromCache) {
+            this.paintFromCache(g2);
+        } else {
+// this.paintChemModel(g2, this.getBounds());
+            this.paintChemModel(g2, new Rectangle(0, 0, getWidth(), getHeight()));
+
+        }
     }
 
+    private void paintFromCache(Graphics2D g) {
+        renderer.repaint(g);
+    }
+
+
+    public void updateView() {
+        this.shouldPaintFromCache = false;
+        this.repaint();
+    }
+
+    public void setFitToScreen(boolean fitToScreen) {
+        this.renderer.setFitToScreen(fitToScreen);
+    }
 }
