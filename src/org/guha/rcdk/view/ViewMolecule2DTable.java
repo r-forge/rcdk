@@ -73,23 +73,13 @@ class StructureTable2D {
         int cnt = 0;
         for (i = 0; i < nrow; i++) {
             for (j = 1; j < this.ncol + 1; j++) {
-                ndata[i][j] = new Render2DPanel(v[cnt], this.cellx, this.celly, this.withHydrogen);
-
-//                Swing2DPainter painter = new Swing2DPainter(this.cellx, this.celly);
-//                painter.setMolecule((IMolecule) v[cnt]);
-//                ndata[i][j] = painter;
-
+                ndata[i][j] = new Render2DPanel(v[cnt], null, this.cellx, this.celly, this.withHydrogen);
                 cnt += 1;
             }
         }
         j = 1;
         while (cnt < v.length) {
-            ndata[nrow][j] = new Render2DPanel(v[cnt], this.cellx, this.celly, this.withHydrogen);
-
-//            Swing2DPainter painter = new Swing2DPainter(this.cellx, this.celly);
-//            painter.setMolecule((IMolecule) v[cnt]);
-//            ndata[nrow][j] = painter;
-
+            ndata[nrow][j] = new Render2DPanel(v[cnt], null, this.cellx, this.celly, this.withHydrogen);
             cnt += 1;
             j += 1;
         }
@@ -178,7 +168,7 @@ public class ViewMolecule2DTable {
     }
 
     public static void main(String[] args) {
-        String home = "/home/rguha/";
+        String home = "/Users/rguha/";
         String[] fname = {home + "src/R/trunk/rcdk/data/dan001.sdf",
                 home + "src/R/trunk/rcdk/data/dan002.sdf",
                 home + "src/R/trunk/rcdk/data/dan003.sdf"};
