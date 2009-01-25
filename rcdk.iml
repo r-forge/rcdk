@@ -39,18 +39,16 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Deps" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/jars/cdk-svn-20061121.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/cdk.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../../java/cdk/trunk/cdk/src" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Deps" level="project" />
     <orderEntryProperties />
   </component>
 </module>

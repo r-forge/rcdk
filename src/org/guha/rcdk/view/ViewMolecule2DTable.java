@@ -144,9 +144,9 @@ public class ViewMolecule2DTable {
         try {
             IAtomContainer[] v = new IAtomContainer[molecules.length];
             for (int i = 0; i < v.length; i++) {
-                CDKHueckelAromaticityDetector.detectAromaticity(v[i]);
-                v[i] = AtomContainerManipulator.removeHydrogens(v[i]);
-                v[i] = Misc.getMoleculeWithCoordinates(molecules[i]);
+                CDKHueckelAromaticityDetector.detectAromaticity(molecules[i]);
+                v[i] = AtomContainerManipulator.removeHydrogens(molecules[i]);
+                v[i] = Misc.getMoleculeWithCoordinates(v[i]);
             }
 
             // some checks for visual niceness
