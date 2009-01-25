@@ -12,6 +12,7 @@ import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.io.ISimpleChemObjectReader;
 import org.openscience.cdk.io.MDLWriter;
 import org.openscience.cdk.io.ReaderFactory;
+import org.openscience.cdk.layout.StructureDiagramGenerator;
 import org.openscience.cdk.smiles.SmilesGenerator;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import org.openscience.cdk.tools.manipulator.ChemFileManipulator;
@@ -164,6 +165,13 @@ public class Misc {
         }
 
         return retValues;
+    }
+
+    public static IAtomContainer getMoleculeWithCoordinates(IAtomContainer molecule) throws Exception {
+        StructureDiagramGenerator sdg = new StructureDiagramGenerator();
+        sdg.setMolecule((IMolecule) molecule);
+        sdg.generateCoordinates();
+        return sdg.getMolecule();
     }
 
 }
