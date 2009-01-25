@@ -134,7 +134,7 @@ get.isotopes.pattern <- function(formula,minAbund=0.1){
   
   isoGen <- .jnew("org/openscience/cdk/formula/IsotopePatternGenerator",as.double(minAbund));
   isotopeSet <- .jcall(isoGen,
-                       "Lorg/openscience/cdk/interfaces/IMolecularFormulaSet;",
+                       "Lorg/openscience/cdk/formula/IsotopePattern;",
                        "getIsotopes",molecularFormula);
   massList <- .jcall(isoGen,"Ljava/util/List;","getMassDistribution",isotopeSet);
   abunList <- .jcall(isoGen,"Ljava/util/List;","getIsotopeDistribution",isotopeSet);

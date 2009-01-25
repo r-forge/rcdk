@@ -58,3 +58,7 @@ set.property(mols[[2]], "prop1", "hello")
 set.property(mols[[2]], "prop2", 23)
 set.property(mols[[2]], "prop3", 122)
 get.properties(mols[[2]])
+
+
+formula <- get.formula('CHCl3', charge = 0) 
+isotopes <- get.isotopes.pattern(formula,minAbund=0.1)

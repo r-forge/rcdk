@@ -333,12 +333,11 @@ have no 3D coordinates many geometric, electronic and hybrid
 descriptors cannot be evaluated.
 
 Given the ubiquity of certain descriptors, some of them are directly
-available via their own functions. Specifically, one can calculate 
+available via their own functions. Specifically, one can calculate
 TPSA (topological polar surface area), AlogP and XlogP without having
-to go through \texttt{eval.desc}.\footnote{Note
-  that AlogP and XlogP assume that hydrogens are explicitly specified
-  in the molecule. This may not be true if the molecules were obtained
-  from SMILES}.
+to go through \texttt{eval.desc}.\footnote{Note that AlogP and XlogP
+  assume that hydrogens are explicitly specified in the molecule. This
+  may not be true if the molecules were obtained from SMILES}.
 
 <<>>=
 mol <- parse.smiles('CC(=O)CC(=O)NCN')
@@ -349,9 +348,12 @@ get.alogp(mol)
 @ 
 
 In any case, now that we have a descriptor matrix, we easily build a
-linear regression model. First, remove NA's, correlated and constant columns.
+linear regression model. First, remove NA's, correlated and constant
+columns. The code is shown below, but since it involves a stochastic
+element, we will not run it for this example. If we were to perform
+feature selection, then this type of reduction would have to be performed.
 
-<<>>=
+<<eval=FALSE>>=
 descs <- descs[, !apply(descs, 2, function(x) any(is.na(x)) )]
 descs <- descs[, !apply( descs, 2, function(x) length(unique(x)) == 1 )]
 r2 <- which(cor(descs)^2 > .6, arr.ind=TRUE)
@@ -548,7 +550,6 @@ of the molecular formula.
 formula <- set.charge.formula(formula, charge=1)
 @ 
 
-
 \subsection{Initializing a Formula from the Symbol Expression}
 
 Other way to create a \texttt{cdkFormula} is from the symbol
@@ -605,7 +606,7 @@ most probable elemental formula. \Rpackage{rcdk} provides the function
 \texttt{get.isotopes.pattern} which predicts the theoretical isotope
 pattern given a formula.
 
-<<>>=
+<<eval=FALSE>>=
 formula <- get.formula('CHCl3', charge = 0) 
 isotopes <- get.isotopes.pattern(formula,minAbund=0.1)
 isotopes
