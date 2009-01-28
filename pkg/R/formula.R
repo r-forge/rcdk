@@ -133,25 +133,20 @@ get.isotopes.pattern <- function(formula,minAbund=0.1){
   molecularFormula <- formula@objectJ;
   
   isoGen <- .jnew("org/openscience/cdk/formula/IsotopePatternGenerator",as.double(minAbund));
-  isotopeSet <- .jcall(isoGen,
+  isoPattern <- .jcall(isoGen,
                        "Lorg/openscience/cdk/formula/IsotopePattern;",
                        "getIsotopes",molecularFormula);
-  massList <- .jcall(isoGen,"Ljava/util/List;","getMassDistribution",isotopeSet);
-  abunList <- .jcall(isoGen,"Ljava/util/List;","getIsotopeDistribution",isotopeSet);
-  size <- .jcall(massList,"I","size");
+  numIP <- .jcall(isoPattern,"I","getNumberOfIsotopes");
   
   ## create a matrix adding the mass and abundance of the isotope pattern
   iso.col <- c("mass","abund");
   
-  massVSabun <- matrix(ncol=2,nrow=size);
+  massVSabun <- matrix(ncol=2,nrow=numIP);
   colnames(massVSabun)<-iso.col;
-  for (i in 1:size) {
-    massVSabun[i,1] <- .jsimplify(.jcast(.jcall(massList,
-                                                "Ljava/lang/Object;", "get",
-                                                as.integer(i-1)), "java/lang/Double"))
-    massVSabun[i,2] <- .jsimplify(.jcast(.jcall(abunList,
-                                                "Ljava/lang/Object;", "get",
-                                                as.integer(i-1)), "java/lang/Double"))
+  for (i in 1:numIP) {
+  	isoContainer <- .jcall(isoPattern,"Lorg/openscience/cdk/formula/IsotopeContainer;","getIsotope",as.integer(i-1));
+    massVSabun[i,1] <- .jcall(isoContainer,"D","getMass");
+    massVSabun[i,2] <- .jcall(isoContainer,"D","getIntensity");
   }
   return (massVSabun);
 }
