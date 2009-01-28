@@ -1,5 +1,4 @@
 % \VignetteIndexEntry{rcdk Tutorial}
-% \VignetteDepends{}
 % \VignettePackage{rcdk}
 % \VignetteKeywords{}
 
@@ -606,7 +605,7 @@ most probable elemental formula. \Rpackage{rcdk} provides the function
 \texttt{get.isotopes.pattern} which predicts the theoretical isotope
 pattern given a formula.
 
-<<eval=FALSE>>=
+<<>>=
 formula <- get.formula('CHCl3', charge = 0) 
 isotopes <- get.isotopes.pattern(formula,minAbund=0.1)
 isotopes
