@@ -14,6 +14,9 @@ source('pkg/R/bonds.R')
 source('pkg/R/formula.R')
 source('pkg/R/desc.R')
 
+data(bpdata)
+mols <- parse.smiles(bpdata$SMILES)
+
 f <- list.files('/home/rguha/src/datasets/DHFR/origdata/all/sdf', pattern=glob2rx("*.sdf"),
                 full.names=TRUE)
 ##f <- c('data/set2/dhfr00001.sdf', 'data/set2/dhfr00002.sdf', 'data/set2/dhfr00003.sdf')

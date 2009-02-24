@@ -1,7 +1,7 @@
 % \VignetteIndexEntry{rcdk Tutorial}
 % \VignettePackage{rcdk}
 % \VignetteKeywords{}
-
+% \VignetteDepends{xtable}
 %% To generate the Latex code
 %library(rcdk)
 %Rnwfile<- file.path("rcdk.Rnw")
