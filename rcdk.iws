@@ -16,21 +16,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" afterPath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/R/io.R" afterPath="$PROJECT_DIR$/pkg/R/io.R" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule2D.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule2D.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/man/ops.Rd" afterPath="$PROJECT_DIR$/pkg/man/ops.Rd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/man/loadmol.Rd" afterPath="$PROJECT_DIR$/pkg/man/loadmol.Rd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule2DTable.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule2DTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule3DDataTable.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule3DDataTable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcdk.iws" afterPath="$PROJECT_DIR$/rcdk.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" afterPath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/man/parsesmiles.Rd" afterPath="$PROJECT_DIR$/pkg/man/parsesmiles.Rd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/R/rcdk.R" afterPath="$PROJECT_DIR$/pkg/R/rcdk.R" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/test/MiscTest.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/test/MiscTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/test/View2DTest.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/test/View2DTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule3D.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule3D.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" afterPath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.pdf" afterPath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule2DDataTable.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule2DDataTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/util/Misc.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/util/Misc.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/R/io.R" afterPath="$PROJECT_DIR$/pkg/R/io.R" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/man/ops.Rd" afterPath="$PROJECT_DIR$/pkg/man/ops.Rd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/man/loadmol.Rd" afterPath="$PROJECT_DIR$/pkg/man/loadmol.Rd" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="rcdk.iws" />
@@ -89,73 +83,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Misc.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/util/Misc.java">
+      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="14" selection-start="6486" selection-end="6486" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MiscTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/test/MiscTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="19" selection-start="791" selection-end="886" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewMolecule2DDataTable.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule2DDataTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="274" column="12" selection-start="9460" selection-end="9555" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewMolecule3DDataTable.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule3DDataTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="12" selection-start="1365" selection-end="1460" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewMolecule2D.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule2D.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="60" selection-start="2022" selection-end="2022" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewMolecule2DTable.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule2DTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="12" selection-start="6390" selection-end="6485" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewMolecule3D.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule3D.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="12" selection-start="2886" selection-end="2981" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="View2DTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/test/View2DTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="12" selection-start="2481" selection-end="2576" vertical-scroll-proportion="1.2136364">
+            <state line="40" column="18" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.48181817">
               <folding />
             </state>
           </provider>
@@ -461,7 +392,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1420" height="860" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Web Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" />
@@ -472,12 +403,12 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971507" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24945295" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971507" sideWeight="0.5" order="8" side_tool="false" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32971507" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.660787" order="1" side_tool="false" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32971507" sideWeight="0.5" order="2" side_tool="false" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971507" sideWeight="0.5" order="2" side_tool="false" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
@@ -504,7 +435,7 @@
     <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated all rendering code to properly generate depictions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated java sources to support isotopic configuration at molecule load time" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
@@ -519,6 +450,7 @@
     <MESSAGE value="Updated code to use the latest renderer" />
     <MESSAGE value="cleaned up the code to use the util function to get 2D coordinates" />
     <MESSAGE value="Updated all rendering code to properly generate depictions" />
+    <MESSAGE value="Updated java sources to support isotopic configuration at molecule load time" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -600,7 +532,9 @@
     <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/util/Misc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="168" column="14" selection-start="6486" selection-end="6486" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1246936597000" expanded="false" signature="47:979" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -641,14 +575,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/ViewMolecule3D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="12" selection-start="2886" selection-end="2981" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="95" column="12" selection-start="3144" selection-end="3239" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1246936597000" expanded="false" signature="36:671" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/test/View2DTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="12" selection-start="2481" selection-end="2576" vertical-scroll-proportion="1.2136364">
+        <state line="69" column="12" selection-start="2472" selection-end="2567" vertical-scroll-proportion="1.3152709">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="18" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.48181817">
           <folding />
         </state>
       </provider>
