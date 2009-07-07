@@ -6,6 +6,8 @@ import org.guha.rcdk.util.Misc;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
+import java.io.IOException;
+
 public class MiscTest extends TestCase {
     String home = "/Users/rguha/";
 
@@ -15,9 +17,11 @@ public class MiscTest extends TestCase {
                 home + "src/R/trunk/rcdk/data/dan008.hin"};
         IAtomContainer[] acs = null;
         try {
-            acs = Misc.loadMolecules(fname, true, true);
+            acs = Misc.loadMolecules(fname, true, true, true);
         } catch (CDKException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
         Assert.assertEquals(3, acs.length);

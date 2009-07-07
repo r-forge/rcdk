@@ -56,7 +56,7 @@ public class ViewMolecule2D extends JFrame {
                 home + "src/R/trunk/rcdk/data/dan003.sdf"};
         IAtomContainer[] acs = null;
         try {
-            acs = Misc.loadMolecules(fname, true, true);
+            acs = Misc.loadMolecules(fname, true, true, true);
         } catch (CDKException e) {
             e.printStackTrace();
         }

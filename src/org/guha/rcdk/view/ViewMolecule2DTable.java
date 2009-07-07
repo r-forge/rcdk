@@ -14,6 +14,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import java.awt.*;
+import java.io.IOException;
 
 
 class RowLabelRenderer extends DefaultTableCellRenderer {
@@ -170,15 +171,19 @@ public class ViewMolecule2DTable {
                 home + "src/R/trunk/rcdk/data/dan003.sdf"};
         IAtomContainer[] acs = null;
         try {
-            acs = Misc.loadMolecules(fname, true, true);
+            acs = Misc.loadMolecules(fname, true, true, true);
         } catch (CDKException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
         try {
-            acs = Misc.loadMolecules(fname, true, false);
+            acs = Misc.loadMolecules(fname, true, false, true);
         } catch (CDKException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
         ViewMolecule2DTable v2dt = new ViewMolecule2DTable(acs, 3, 200, 200);
 

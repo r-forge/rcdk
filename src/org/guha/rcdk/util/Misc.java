@@ -5,6 +5,7 @@ package org.guha.rcdk.util;
 
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
+import org.openscience.cdk.config.IsotopeFactory;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IChemFile;
@@ -20,6 +21,7 @@ import org.openscience.cdk.tools.manipulator.ChemFileManipulator;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -95,22 +97,20 @@ public class Misc {
     /**
      * Loads one or more files into IAtomContainer objects.
      * <p/>
-     * This method does not need knowledge of the format since it is
-     * autodetected.    Note that if aromaticity detection or atom typing
-     * is specified and fails for a specific molecule, that molecule will be
-     * set to <i>null</i>
+     * This method does not need knowledge of the format since it is autodetected.    Note that if aromaticity detection
+     * or atom typing is specified and fails for a specific molecule, that molecule will be set to <i>null</i>
      *
-     * @param filenames     An array of String's containing the filenames of the
-     *                      structures we want to load
+     * @param filenames     An array of String's containing the filenames of the structures we want to load
      * @param doAromaticity If true, then aromaticity perception is performed
-     * @param doTyping      If true, atom typing and configuration is performed. This will
-     *                      use the internal CDK atom typing scheme
+     * @param doTyping      If true, atom typing and configuration is performed. This will use the internal CDK atom
+     *                      typing scheme
      * @return An array of AtoContainer's
      * @throws CDKException if there is an error when reading a file
      */
     public static IAtomContainer[] loadMolecules(String[] filenames,
                                                  boolean doAromaticity,
-                                                 boolean doTyping) throws CDKException {
+                                                 boolean doTyping,
+                                                 boolean doIsotopes) throws CDKException, IOException {
         Vector<IAtomContainer> v = new Vector<IAtomContainer>();
         DefaultChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();
         try {
@@ -161,6 +161,13 @@ public class Misc {
                 } catch (CDKException e) {
                     retValues[i] = null;
                 }
+            }
+        }
+
+        if (doIsotopes) {
+            IsotopeFactory ifac = IsotopeFactory.getInstance(DefaultChemObjectBuilder.getInstance());
+            for (IAtomContainer retValue : retValues) {
+                ifac.configureAtoms(retValue);
             }
         }
 

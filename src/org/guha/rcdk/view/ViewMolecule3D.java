@@ -3,7 +3,13 @@ package org.guha.rcdk.view;
 import org.guha.rcdk.util.Misc;
 import org.guha.rcdk.view.panels.JmolPanel;
 import org.jmol.api.JmolViewer;
-import org.openscience.cdk.*;
+import org.openscience.cdk.AtomContainer;
+import org.openscience.cdk.ChemFile;
+import org.openscience.cdk.ChemModel;
+import org.openscience.cdk.ChemSequence;
+import org.openscience.cdk.DefaultChemObjectBuilder;
+import org.openscience.cdk.Molecule;
+import org.openscience.cdk.MoleculeSet;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
@@ -11,6 +17,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 public class ViewMolecule3D {
     JmolPanel jmolPanel;
@@ -79,11 +86,13 @@ public class ViewMolecule3D {
     public static void main(String[] args) {
         try {
             IAtomContainer[] acs = Misc.loadMolecules(new String[]{"/home/rajarshi/src/Rrepo/trunk/rcdk/data/dan007.hin"},
-                    true, true);
+                    true, true, true);
             AtomContainer ac = (AtomContainer) DefaultChemObjectBuilder.getInstance().newAtomContainer(acs[0]);
             ViewMolecule3D vm3d = new ViewMolecule3D(ac);
             vm3d.show();
         } catch (CDKException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
     }

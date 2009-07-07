@@ -9,12 +9,11 @@ import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.smiles.SmilesParser;
 
+import java.io.IOException;
+
 /**
- * Created by IntelliJ IDEA.
- * User: rguha
- * Date: Aug 28, 2006
- * Time: 2:58:26 PM
- * To change this template use File | Settings | File Templates.
+ * Created by IntelliJ IDEA. User: rguha Date: Aug 28, 2006 Time: 2:58:26 PM To change this template use File | Settings
+ * | File Templates.
  */
 public class View2DTest extends TestCase {
     String home = "/Users/rguha/";
@@ -33,7 +32,7 @@ public class View2DTest extends TestCase {
                 home + "src/R/trunk/rcdk/data/dan003.sdf"};
         IAtomContainer[] acs = null;
         try {
-            acs = Misc.loadMolecules(fname, true, true);
+            acs = Misc.loadMolecules(fname, true, true, true);
         } catch (CDKException e) {
             e.printStackTrace();
         }
@@ -49,7 +48,7 @@ public class View2DTest extends TestCase {
                 home + "src/R/trunk/rcdk/data/dan003.hin"};
         IAtomContainer[] acs = null;
         try {
-            acs = Misc.loadMolecules(fname, true, true);
+            acs = Misc.loadMolecules(fname, true, true, true);
         } catch (CDKException e) {
             e.printStackTrace();
         }
@@ -64,9 +63,11 @@ public class View2DTest extends TestCase {
                 home + "src/R/trunk/rcdk/data/dan008.hin"};
         IAtomContainer[] acs = null;
         try {
-            acs = Misc.loadMolecules(fname, true, true);
+            acs = Misc.loadMolecules(fname, true, true, true);
         } catch (CDKException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
         ViewMolecule2DTable v2dt = new ViewMolecule2DTable(acs, 3, 200, 200);

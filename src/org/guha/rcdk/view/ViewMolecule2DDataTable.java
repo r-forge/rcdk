@@ -23,6 +23,7 @@ import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 public class ViewMolecule2DDataTable {
 
@@ -57,9 +58,11 @@ public class ViewMolecule2DDataTable {
     public ViewMolecule2DDataTable(String[] fnames, String[] cnames,
                                    Object[][] tabledata) {
         try {
-            molecules = Misc.loadMolecules(fnames, true, true);
+            molecules = Misc.loadMolecules(fnames, true, true, true);
         } catch (CDKException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
         frame = new JFrame("Table of Molecules");
         frame.addWindowListener(new ApplicationCloser());
@@ -265,9 +268,11 @@ public class ViewMolecule2DDataTable {
                 home + "src/R/trunk/rcdk/data/dan003.sdf"};
         IAtomContainer[] acs = null;
         try {
-            acs = Misc.loadMolecules(fname, true, true);
+            acs = Misc.loadMolecules(fname, true, true, true);
         } catch (CDKException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
         String[] cnames = {"X", "Y", "Z", "A", "B", "C"};

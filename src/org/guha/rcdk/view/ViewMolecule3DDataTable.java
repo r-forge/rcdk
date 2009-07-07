@@ -17,6 +17,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import java.awt.*;
+import java.io.IOException;
 
 public class ViewMolecule3DDataTable {
 
@@ -34,9 +35,11 @@ public class ViewMolecule3DDataTable {
         Object[][] data = new Object[fnames.length][cnames.length];
         IAtomContainer[] molecules = null;
         try {
-            molecules = Misc.loadMolecules(fnames, true, true);
+            molecules = Misc.loadMolecules(fnames, true, true, true);
         } catch (CDKException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
         // set the structures
