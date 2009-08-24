@@ -13,6 +13,7 @@ import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.io.ISimpleChemObjectReader;
 import org.openscience.cdk.io.ReaderFactory;
 import org.openscience.cdk.io.SDFWriter;
+import org.openscience.cdk.io.SMILESReader;
 import org.openscience.cdk.layout.StructureDiagramGenerator;
 import org.openscience.cdk.smiles.SmilesGenerator;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
@@ -112,6 +113,12 @@ public class Misc {
                 File input = new File(filenames[i]);
                 ReaderFactory readerFactory = new ReaderFactory();
                 ISimpleChemObjectReader reader = readerFactory.createReader(new FileReader(input));
+
+                if (reader == null) { // see if it's a SMI file
+                    if (filenames[i].endsWith(".smi")) {
+                        reader = new SMILESReader(new FileReader(input));
+                    }
+                }
                 IChemFile content = (IChemFile) reader.read(builder.newChemFile());
                 if (content == null) continue;
 
