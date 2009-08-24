@@ -11,8 +11,8 @@ import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IChemFile;
 import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.io.ISimpleChemObjectReader;
+import org.openscience.cdk.io.MDLWriter;
 import org.openscience.cdk.io.ReaderFactory;
-import org.openscience.cdk.io.SDFWriter;
 import org.openscience.cdk.io.SMILESReader;
 import org.openscience.cdk.layout.StructureDiagramGenerator;
 import org.openscience.cdk.smiles.SmilesGenerator;
@@ -24,6 +24,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 /**
@@ -35,8 +36,12 @@ public class Misc {
     public static void writeMoleculesInOneFile(IAtomContainer[] molecules,
                                                String filename,
                                                int writeProps) throws Exception {
-        SDFWriter writer = new SDFWriter(new FileWriter(new File(filename)));
+        MDLWriter writer = new MDLWriter(new FileWriter(new File(filename)));
         for (IAtomContainer molecule : molecules) {
+            if (writeProps == 1) {
+                Map properties = molecule.getProperties();
+                writer.setSdFields(properties);
+            }
             writer.write(molecule);
         }
     }
@@ -45,7 +50,11 @@ public class Misc {
         int counter = 1;
         for (IAtomContainer molecule : molecules) {
             String filename = prefix + counter + ".sdf";
-            SDFWriter writer = new SDFWriter(new FileWriter(new File(filename)));
+            MDLWriter writer = new MDLWriter(new FileWriter(new File(filename)));
+            if (writeProps == 1) {
+                Map properties = molecule.getProperties();
+                writer.setSdFields(properties);
+            }
             writer.write(molecule);
             writer.close();
             counter += 1;
