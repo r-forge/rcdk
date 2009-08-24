@@ -306,7 +306,7 @@
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/../../../java/cdk/trunk/src/main" />
+        <root url="file://$PROJECT_DIR$/../../../java/cdk/src/main" />
       </SOURCES>
     </library>
   </component>

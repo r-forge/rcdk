@@ -27,4 +27,19 @@ public class MiscTest extends TestCase {
         Assert.assertEquals(3, acs.length);
 
     }
+
+    public void testLoadMolsFromSmi() {
+        IAtomContainer[] acs = null;
+        try {
+            acs = Misc.loadMolecules(new String[]{"/Users/rguha/src/R/trunk/rcdk/data/big.smi"}, true, true, true);
+        } catch (CDKException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+
+        assert acs != null;
+        Assert.assertEquals(277, acs.length);
+
+    }
 }
