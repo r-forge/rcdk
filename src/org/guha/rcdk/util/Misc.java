@@ -11,9 +11,10 @@ import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IChemFile;
 import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.io.ISimpleChemObjectReader;
-import org.openscience.cdk.io.MDLWriter;
 import org.openscience.cdk.io.ReaderFactory;
+import org.openscience.cdk.io.SDFWriter;
 import org.openscience.cdk.io.SMILESReader;
+import org.openscience.cdk.io.listener.PropertiesListener;
 import org.openscience.cdk.layout.StructureDiagramGenerator;
 import org.openscience.cdk.smiles.SmilesGenerator;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
@@ -24,7 +25,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
+import java.util.Properties;
 import java.util.Vector;
 
 /**
@@ -36,24 +37,31 @@ public class Misc {
     public static void writeMoleculesInOneFile(IAtomContainer[] molecules,
                                                String filename,
                                                int writeProps) throws Exception {
-        MDLWriter writer = new MDLWriter(new FileWriter(new File(filename)));
+        SDFWriter writer = new SDFWriter(new FileWriter(new File(filename)));
+        if (writeProps == 0) {
+            Properties sdfWriterProps = new Properties();
+            sdfWriterProps.put("writeProperties", "false");
+            writer.addChemObjectIOListener(new PropertiesListener(sdfWriterProps));
+            writer.customizeJob();
+        }
         for (IAtomContainer molecule : molecules) {
-            if (writeProps == 1) {
-                Map properties = molecule.getProperties();
-                writer.setSdFields(properties);
-            }
             writer.write(molecule);
         }
+        writer.close();
     }
 
     public static void writeMolecules(IAtomContainer[] molecules, String prefix, int writeProps) throws Exception {
         int counter = 1;
         for (IAtomContainer molecule : molecules) {
             String filename = prefix + counter + ".sdf";
-            MDLWriter writer = new MDLWriter(new FileWriter(new File(filename)));
-            if (writeProps == 1) {
-                Map properties = molecule.getProperties();
-                writer.setSdFields(properties);
+            SDFWriter writer = new SDFWriter(new FileWriter(new File(filename)));
+            if (writeProps == 0) {
+                Properties sdfWriterProps = new Properties();
+                sdfWriterProps.put("writeProperties", "false");
+                writer.addChemObjectIOListener(
+                        new PropertiesListener(sdfWriterProps)
+                );
+                writer.customizeJob();
             }
             writer.write(molecule);
             writer.close();
