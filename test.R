@@ -14,8 +14,11 @@ source('pkg/R/bonds.R')
 source('pkg/R/formula.R')
 source('pkg/R/desc.R')
 
+m <- parse.smiles('CCC')
+get.smiles(m)
+
 data(bpdata)
-mols <- parse.smiles(bpdata$SMILES)
+mols <- sapply(bpdata$SMILES, parse.smiles)
 
 f <- list.files('/home/rguha/src/datasets/DHFR/origdata/all/sdf', pattern=glob2rx("*.sdf"),
                 full.names=TRUE)
@@ -65,3 +68,7 @@ get.properties(mols[[2]])
 
 formula <- get.formula('CHCl3', charge = 0) 
 isotopes <- get.isotopes.pattern(formula,minAbund=0.1)
+
+
+mfSet <- generate.formula(18.03383,charge=1,
+                          elements=list(c("C",0,50),c("H",0,50),c("N",0,50)))

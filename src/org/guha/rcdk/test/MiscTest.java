@@ -8,11 +8,24 @@ import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.interfaces.IChemFile;
+import org.openscience.cdk.io.ISimpleChemObjectReader;
+import org.openscience.cdk.io.MDLV2000Reader;
 import org.openscience.cdk.io.SDFWriter;
+import org.openscience.cdk.isomorphism.UniversalIsomorphismTester;
+import org.openscience.cdk.isomorphism.mcss.RMap;
 import org.openscience.cdk.smiles.SmilesParser;
+import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
+import org.openscience.cdk.tools.manipulator.ChemFileManipulator;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
 
 public class MiscTest extends TestCase {
     String home = "/Users/rguha/";
@@ -74,4 +87,48 @@ public class MiscTest extends TestCase {
 
         Misc.writeMoleculesInOneFile(new IAtomContainer[]{mol}, "/Users/rguha/foo.sdf", 0);
     }
+
+    public void testjunk() throws FileNotFoundException, CDKException, CloneNotSupportedException {
+        ISimpleChemObjectReader reader = new MDLV2000Reader(new FileReader("/Users/rguha/tmp/frog.sdf"));
+        IChemFile content = (IChemFile) reader.read(DefaultChemObjectBuilder.getInstance().newChemFile());
+        List<IAtomContainer> c = ChemFileManipulator.getAllAtomContainers(content);
+
+        IAtomContainer m1 = c.get(0);
+        IAtomContainer m2 = c.get(1);
+
+        m1 = AtomContainerManipulator.removeHydrogens(m1);
+        m2 = AtomContainerManipulator.removeHydrogens(m2);
+
+        List<IAtomContainer> maps = UniversalIsomorphismTester.getOverlaps(m1, m2);
+        System.out.println("maps.size() = " + maps.size());
+        IAtomContainer mcss = null;
+        int natom = -1;
+        for (IAtomContainer map : maps) {
+            if (map.getAtomCount() > natom) {
+                natom = map.getAtomCount();
+                mcss = (IAtomContainer) map.clone();
+            }
+        }
+        System.out.println("mcss.getAtomCount() = " + mcss.getAtomCount());
+//        KabschAlignment ka = new KabschAlignment();
+    }
+
+    public static IAtomContainer getneedle(IAtomContainer a, IAtomContainer q) throws CDKException {
+        IAtomContainer needle = DefaultChemObjectBuilder.getInstance().newAtomContainer();
+        Vector idlist = new Vector();
+
+        List l = UniversalIsomorphismTester.getSubgraphMaps(a, q);
+        List maplist = (List) l.get(0);
+        for (Iterator i = maplist.iterator(); i.hasNext();) {
+            RMap rmap = (RMap) i.next();
+            idlist.add(new Integer(rmap.getId1()));
+        }
+
+        HashSet hs = new HashSet(idlist);
+        for (Iterator i = hs.iterator(); i.hasNext();) {
+            needle.addBond(a.getBond(((Integer) i.next()).intValue()));
+        }
+        return needle;
+    }
+
 }
