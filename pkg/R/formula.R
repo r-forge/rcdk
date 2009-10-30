@@ -162,12 +162,14 @@ generate.formula <- function(mass, window=0.01,
   
   builder <- .cdkFormula.createChemObject();
   mfTool <- .jnew("org/openscience/cdk/formula/MassToFormulaTool",builder);
-  ruleList <-.jcall("org/guha/rcdk/formula/FormulaTools", "Ljava/util/List;", "createList")
+  ruleList <-.jcast(.jcall("org/guha/rcdk/formula/FormulaTools",
+                    "Ljava/util/List;",
+                    "createList"), "java/util/List")
   
   ## TOLERANCE RULE
   toleranceRule <- .jnew("org/openscience/cdk/formula/rules/ToleranceRangeRule");
   ruleG <- .jcast(toleranceRule, "org/openscience/cdk/formula/rules/IRule");
-  D <- .jnew("java/lang/Double", window)
+  D <- new(J("java/lang/Double"), window)
   paramsA <- .jarray(list(D,D))
   paramsB <- .jcastToArray(paramsA)
   .jcall(ruleG,"V","setParameters",paramsB);
@@ -177,41 +179,54 @@ generate.formula <- function(mass, window=0.01,
   ## ELEMENTS RULE
   elementRule <- .jnew("org/openscience/cdk/formula/rules/ElementRule");
   ruleG <- .jcast(elementRule, "org/openscience/cdk/formula/rules/IRule");
-   
+  
   chemObject <- .cdkFormula.createChemObject();
   range <- .jnew("org/openscience/cdk/formula/MolecularFormulaRange");
   ifac <- .jcall("org/openscience/cdk/config/IsotopeFactory",
-          "Lorg/openscience/cdk/config/IsotopeFactory;",
-          "getInstance",chemObject);
+                 "Lorg/openscience/cdk/config/IsotopeFactory;",
+                 "getInstance",chemObject);
   
   for (i in 1:length(elements)) {
-      isotope <- .jcall(ifac,"Lorg/openscience/cdk/interfaces/IIsotope;","getMajorIsotope", as.character( elements[[i]][1] ));
-     .jcall(range, ,"addIsotope",isotope,as.integer( elements[[i]][2] ),as.integer( elements[[i]][3] ));
+    isotope <- .jcall(ifac,
+                      "Lorg/openscience/cdk/interfaces/IIsotope;",
+                      "getMajorIsotope",
+                      as.character( elements[[i]][1] ), use.true.class=FALSE)
+    .jcall(range,
+           returnSig="V",
+           method="addIsotope",
+           isotope,
+           as.integer( elements[[i]][2] ),
+           as.integer( elements[[i]][3] )
+           )
   }
-   
+  
   paramsA <- .jarray(list(range))
   paramsB <- .jcastToArray(paramsA)
   .jcall(ruleG,"V","setParameters",paramsB);
   
-  ruleList <-.jcall("org/guha/rcdk/formula/FormulaTools", "Ljava/util/List;", "addTo",ruleList,ruleG)
+  ruleList <-.jcall("org/guha/rcdk/formula/FormulaTools",
+                    "Ljava/util/List;", "addTo",
+                    .jcast(ruleList,"java/util/List"),
+                    ruleG)
    
   ## Setting the rules int FormulaTools
-  .jcall(mfTool,"V","setRestrictions",ruleList);
+  .jcall(mfTool,"V","setRestrictions",.jcast(ruleList,"java/util/List"));
   
-  mfSet <- .jcall(mfTool,"Lorg/openscience/cdk/interfaces/IMolecularFormulaSet;","generate",mass);
+  mfSet <- .jcall(mfTool,"Lorg/openscience/cdk/interfaces/IMolecularFormulaSet;",
+                  "generate",mass);
   sizeSet <- .jcall(mfSet,"I","size");
   ecList <- list();
   count = 1;
   
   for (i in 1:sizeSet) {
-    mf = .jcall(mfSet,
-      "Lorg/openscience/cdk/interfaces/IMolecularFormula;",
-      "getMolecularFormula",
-      as.integer(i-1));
+    mf <- .jcall(mfSet,
+                 "Lorg/openscience/cdk/interfaces/IMolecularFormula;",
+                 "getMolecularFormula",
+                 as.integer(i-1));
 
-	D <- .jnew("java/lang/Double", charge)
-	.jcall(mf,"V","setCharge",D);
-	object <- .cdkFormula.createObject(mf);
+    .jcall(mf,"V","setCharge",new(J("java/lang/Double"), charge));
+    object <- .cdkFormula.createObject(.jcast(mf,
+                                     "org/openscience/cdk/interfaces/IMolecularFormula"));
     
     isValid = TRUE;
     if(validation==TRUE)
@@ -235,14 +250,15 @@ generate.formula <- function(mass, window=0.01,
                  "Lorg/openscience/cdk/DefaultChemObjectBuilder;",
                  "getInstance");
   dcob <- .jcast(dcob, "org/openscience/cdk/interfaces/IChemObjectBuilder");
-  
+  dcob
 }
 .cdkFormula.createFormulaObject <- function(){
-	dcob <- .jcall("org/openscience/cdk/DefaultChemObjectBuilder",
-			"Lorg/openscience/cdk/DefaultChemObjectBuilder;",
-			"getInstance");
-	dcob <- .jcast(dcob, "org/openscience/cdk/interfaces/IChemObjectBuilder");
-	cfob <- .jcall(dcob,"Lorg/openscience/cdk/interfaces/IMolecularFormula;","newMolecularFormula");
+  dcob <- .jcall("org/openscience/cdk/DefaultChemObjectBuilder",
+                 "Lorg/openscience/cdk/DefaultChemObjectBuilder;",
+                 "getInstance");
+  dcob <- .jcast(dcob, "org/openscience/cdk/interfaces/IChemObjectBuilder");
+  cfob <- .jcall(dcob,"Lorg/openscience/cdk/interfaces/IMolecularFormula;","newMolecularFormula");
+  cfob
 }
 
 #############################################################
