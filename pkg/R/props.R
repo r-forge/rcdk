@@ -49,18 +49,19 @@ get.properties <- function(molecule) {
   keyIter <- .jcall(keySet, "Ljava/util/Iterator;", method="iterator")
   keys <- list()
   for (i in 1:size) {
-    keys[[i]] <-.jcall(keyIter, "Ljava/lang/Object;", method="next")
+##    keys[[i]] <-.jcall(keyIter, "Ljava/lang/Object;", method="next")
+    keys[[i]] <- J(keyIter, "next")
   }
 
   
   values <- list()
   for (i in 1:length(keys)) {
-    values[[i]] <- .jcall(map, "Ljava/lang/Object;", "get", keys[[i]] )
+    values[[i]] <- .jcall(map, "Ljava/lang/Object;", "get", .jcast(new(J("java/lang/String"),keys[[i]]),"java/lang/Object") )
   }
 
   ret <- list()
   for (i in 1:length(keys)) {
-    k <- .jcall(keys[[i]], "Ljava/lang/String;", "toString")
+    k <- keys[[i]]
     if (is.jnull(values[[i]])) ret[[k]] <- NA
     else ret[[k]] <- .jsimplify(values[[i]])
   }
