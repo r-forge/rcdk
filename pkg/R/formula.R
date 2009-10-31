@@ -37,7 +37,7 @@ get.formula <- function(mf, charge=0) {
                                TRUE);
   }
   
-  D <- new(J("java/lang/Double"), charge)
+  D <- new(J("java/lang/Integer"), as.integer(charge))
   .jcall(molecularFormula,"V","setCharge",D);
   object <- .cdkFormula.createObject(.jcast(molecularFormula,.IMolecularFormula));
   return(object);
@@ -74,7 +74,7 @@ get.mol2formula <- function(molecule, charge=0) {
                        "getMolecularFormula",string,
                        .jcast(objectF,"org/openscience/cdk/interfaces/IMolecularFormula"),TRUE);
   
-  Do <- new(J("java/lang/Double"), charge)
+  Do <- new(J("java/lang/Integer"), as.integer(charge))
   .jcall(moleculaJT,"V","setCharge",Do);	   
 
   formula <- .cdkFormula.createObject(.jcast(moleculaJT,.IMolecularFormula))
@@ -89,7 +89,7 @@ set.charge.formula <- function(formula,charge) {
   
   molecularFormula <- formula@objectJ;
   
-  D <- new(J("java/lang/Double"), charge)
+  D <- new(J("java/lang/Integer"), as.integer(charge))
   .jcall(molecularFormula,"V","setCharge",D);
   
   formula@objectJ <- molecularFormula;
@@ -235,7 +235,7 @@ generate.formula <- function(mass, window=0.01,
                  "getMolecularFormula",
                  as.integer(i-1));
 
-    .jcall(mf,"V","setCharge",new(J("java/lang/Double"), charge));
+    .jcall(mf,"V","setCharge",new(J("java/lang/Integer"), as.integer(charge)));
     object <- .cdkFormula.createObject(.jcast(mf,
                                               "org/openscience/cdk/interfaces/IMolecularFormula"));
     
@@ -309,7 +309,7 @@ generate.formula <- function(mass, window=0.01,
   manipulator <- .jnew("org/openscience/cdk/tools/manipulator/MolecularFormulaManipulator");
   cMass <- .jcall(manipulator,"D","getTotalExactMass",molecularformula);
   object@mass <- cMass;
-  chargeDO <- .jcall(molecularformula,"Ljava/lang/Double;","getCharge");
+  chargeDO <- .jcall(molecularformula,"Ljava/lang/Integer;","getCharge");
   charge <- .jcall(chargeDO,"D","doubleValue");
   object <- set.charge.formula(object,charge)
   object@isotopes <- isotopeList;
