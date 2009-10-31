@@ -20,6 +20,16 @@ get.smiles(m)
 data(bpdata)
 mols <- sapply(bpdata$SMILES, parse.smiles)
 
+mols <- m
+filename <- 'foo.sdf'
+together<-TRUE
+write.props<-TRUE
+value <-.jcall('org/guha/rcdk/util/Misc', 'V', 'writeMoleculesInOneFile',
+                   .jarray(mols,
+                           contents.class = "org/openscience/cdk/interfaces/IAtomContainer"),
+                   as.character(filename), as.integer(ifelse(write.props,1,0)))
+
+
 f <- list.files('/home/rguha/src/datasets/DHFR/origdata/all/sdf', pattern=glob2rx("*.sdf"),
                 full.names=TRUE)
 ##f <- c('data/set2/dhfr00001.sdf', 'data/set2/dhfr00002.sdf', 'data/set2/dhfr00003.sdf')

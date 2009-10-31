@@ -302,7 +302,7 @@
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/jars/Jmol.jar!/" />
         <root url="jar://$PROJECT_DIR$/jars/cdk-jchempaint.jar!/" />
-        <root url="jar://$PROJECT_DIR$/jars/cdk-1.2.3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/jars/cdk.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>

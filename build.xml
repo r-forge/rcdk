@@ -31,6 +31,7 @@
             optimize="${optimization}" source="1.5" verbose="no">
             <classpath refid="project.class.path" />
             <exclude name="org/guha/rcdk/test/**"/>
+            <exclude name="org/guha/rcdk/view/**"/>
         </javac>
     </target>
 
