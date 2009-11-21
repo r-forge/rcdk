@@ -287,6 +287,7 @@ carbon atom that has exactly two bonded neighbors.
 mols <- sapply(c('CC(C)(C)C','c1ccc(Cl)cc1C(=O)O', 'CCC(N)(N)CC'), parse.smiles)
 query <- '[#6D2]'
 hits <- match(query, mols)
+print(hits)
 @ 
 
 \section{Molecular Descriptors}
