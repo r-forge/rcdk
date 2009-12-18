@@ -18,6 +18,10 @@ public class DescriptorUtilities {
         List<String> classNames = engine.getDescriptorClassNames();
         for (String className : classNames) {
             String[] dictClasses = engine.getDictionaryClass(className);
+            if (dictClasses == null) {
+                if (className.indexOf("Mannhold") >= 0)
+                    dictClasses = new String[]{"constitutionalDescriptor"};
+            }
             for (String dictClass : dictClasses) {
                 if (category.equals(dictClass)) {
                     ret.add(className);
