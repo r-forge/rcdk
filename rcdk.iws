@@ -18,13 +18,9 @@
     <list default="true" readonly="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.pdf" afterPath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.Rnw" afterPath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.Rnw" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcdk.iws" afterPath="$PROJECT_DIR$/rcdk.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" afterPath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" afterPath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.pdf" afterPath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jars/cdk.jar" afterPath="$PROJECT_DIR$/jars/cdk.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/descriptors/DescriptorUtilities.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/descriptors/DescriptorUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcdk.ipr" afterPath="$PROJECT_DIR$/rcdk.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/inst/doc/rcdk.pdf" afterPath="$PROJECT_DIR$/pkg/inst/doc/rcdk.pdf" />
     </list>
     <ignored path=".idea/workspace.xml" />
