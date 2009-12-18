@@ -18,10 +18,8 @@
     <list default="true" readonly="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.pdf" afterPath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.Rnw" afterPath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.Rnw" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" afterPath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" afterPath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.pdf" afterPath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/inst/doc/rcdk.pdf" afterPath="$PROJECT_DIR$/pkg/inst/doc/rcdk.pdf" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="rcdk.iws" />
@@ -129,7 +127,7 @@
       <file leaf-file-name="DescriptorUtilities.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/descriptors/DescriptorUtilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="490" selection-end="490" vertical-scroll-proportion="0.36601308">
+            <state line="14" column="89" selection-start="353" selection-end="353" vertical-scroll-proportion="0.2875817">
               <folding />
             </state>
           </provider>
@@ -494,12 +492,12 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971507" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24653538" sideWeight="0.660787" order="1" side_tool="false" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32428765" sideWeight="0.5" order="8" side_tool="false" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32428765" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08527697" sideWeight="0.660787" order="1" side_tool="false" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32971507" sideWeight="0.5" order="2" side_tool="false" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971507" sideWeight="0.5" order="2" side_tool="false" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39891452" sideWeight="0.5" order="4" side_tool="false" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971507" sideWeight="0.5" order="8" side_tool="false" />
@@ -712,7 +710,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/descriptors/DescriptorUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="490" selection-end="490" vertical-scroll-proportion="0.36601308">
+        <state line="14" column="89" selection-start="353" selection-end="353" vertical-scroll-proportion="0.2875817">
           <folding />
         </state>
       </provider>

@@ -13,6 +13,9 @@ source('pkg/R/atoms.R')
 source('pkg/R/bonds.R')
 source('pkg/R/formula.R')
 source('pkg/R/desc.R')
+source('pkg/R/matching.R')
+mfSet <- generate.formula(18.03383,charge=1,
+                          elements=list(c("C",0,50),c("H",0,50),c("N",0,50)))
 
 m <- parse.smiles('CCC')
 get.smiles(m)
