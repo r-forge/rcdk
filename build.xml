@@ -32,6 +32,7 @@
             <classpath refid="project.class.path" />
             <exclude name="org/guha/rcdk/test/**"/>
             <exclude name="org/guha/rcdk/view/**"/>
+            <exclude name="org/guha/rcdk/draw/**"/>
         </javac>
     </target>
 

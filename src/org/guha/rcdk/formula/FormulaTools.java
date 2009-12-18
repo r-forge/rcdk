@@ -1,14 +1,11 @@
 package org.guha.rcdk.formula;
 
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.applications.jchempaint.JChemPaintEditorPanel;
-import org.openscience.cdk.applications.jchempaint.JChemPaintModel;
 import org.openscience.cdk.formula.rules.IRule;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IChemModel;
 import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.interfaces.IMoleculeSet;
-import org.openscience.cdk.layout.StructureDiagramGenerator;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
