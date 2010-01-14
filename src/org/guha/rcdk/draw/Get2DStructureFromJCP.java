@@ -1,8 +1,6 @@
 package org.guha.rcdk.draw;
 
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.applications.jchempaint.JChemPaintEditorPanel;
-import org.openscience.cdk.applications.jchempaint.JChemPaintModel;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IChemModel;
 import org.openscience.cdk.interfaces.IMolecule;
@@ -47,14 +45,14 @@ public class Get2DStructureFromJCP {
         dlg.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         dlg.addWindowListener(new MyAppCloser());
 
-        JChemPaintEditorPanel editPanel = new JChemPaintEditorPanel();
-        JChemPaintModel model = new JChemPaintModel();
-        editPanel.registerModel(model);
-        editPanel.setJChemPaintModel(model);
-
-        dlg.add(editPanel);
-        dlg.pack();
-        dlg.setVisible(true);
+//        JChemPaintEditorPanel editPanel = new JChemPaintEditorPanel();
+//        JChemPaintModel model = new JChemPaintModel();
+//        editPanel.registerModel(model);
+//        editPanel.setJChemPaintModel(model);
+//
+//        dlg.add(editPanel);
+//        dlg.pack();
+//        dlg.setVisible(true);
     }
 
     private final static class MyAppCloser extends WindowAdapter {
@@ -66,13 +64,13 @@ public class Get2DStructureFromJCP {
          * @param e Description of the Parameter
          */
         public void windowClosing(WindowEvent e) {
-            JDialog dlg = (JDialog) e.getSource();
-            JChemPaintEditorPanel editPanel = (JChemPaintEditorPanel) dlg
-                    .getContentPane().getComponent(0);
-
-            chemModel = editPanel.getChemModel();
-            ((JDialog) e.getSource()).setVisible(false);
-            ((JDialog) e.getSource()).dispose();
+//            JDialog dlg = (JDialog) e.getSource();
+//            JChemPaintEditorPanel editPanel = (JChemPaintEditorPanel) dlg
+//                    .getContentPane().getComponent(0);
+//
+//            chemModel = editPanel.getChemModel();
+//            ((JDialog) e.getSource()).setVisible(false);
+//            ((JDialog) e.getSource()).dispose();
         }
     }
 

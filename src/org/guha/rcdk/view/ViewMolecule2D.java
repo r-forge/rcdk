@@ -1,7 +1,7 @@
 package org.guha.rcdk.view;
 
 import org.guha.rcdk.util.Misc;
-import org.guha.rcdk.view.panels.Render2DPanel;
+import org.guha.rcdk.view.panels.MoleculeCell;
 import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.graph.ConnectivityChecker;
@@ -16,7 +16,7 @@ import java.awt.event.WindowEvent;
 public class ViewMolecule2D extends JFrame {
     IAtomContainer molecule;
 
-    Render2DPanel panel;
+    MoleculeCell panel;
 
     int width = 300;
     int height = 300;
@@ -27,8 +27,14 @@ public class ViewMolecule2D extends JFrame {
             dispose();
         }
     }
-
     public ViewMolecule2D(IAtomContainer molecule) throws Exception {
+        this(molecule, 300, 300);
+    }
+
+    public ViewMolecule2D(IAtomContainer molecule, int width, int height) throws Exception {
+        this.width = width;
+        this.height = height;
+
         if (!ConnectivityChecker.isConnected(molecule)) throw new CDKException("Molecule must be connected");
         molecule = AtomContainerManipulator.removeHydrogens(molecule);
         try {
@@ -37,10 +43,10 @@ public class ViewMolecule2D extends JFrame {
             throw new Exception("Error in aromatcity detection");
         }
         molecule = Misc.getMoleculeWithCoordinates(molecule);
-        panel = new Render2DPanel(molecule, null, 200, 200, false);
+        panel = new MoleculeCell(molecule, width, height);
         setTitle("2D Viewer");
         addWindowListener(new ApplicationCloser());
-        setSize(300, 300);
+        setSize(width, height);
     }
 
     public void draw() {
@@ -50,10 +56,10 @@ public class ViewMolecule2D extends JFrame {
     }
 
     public static void main(String[] arg) throws Exception {
-        String home = "/Users/rguha/";
-        String[] fname = {home + "src/R/trunk/rcdk/data/dan001.sdf",
-                home + "src/R/trunk/rcdk/data/dan002.sdf",
-                home + "src/R/trunk/rcdk/data/dan003.sdf"};
+        String home = "/Users/guhar/";
+        String[] fname = {home + "src/rcdk/data/dan001.sdf",
+                home + "src/rcdk/data/dan002.sdf",
+                home + "src/rcdk/data/dan003.sdf"};
         IAtomContainer[] acs = null;
         try {
             acs = Misc.loadMolecules(fname, true, true, true);

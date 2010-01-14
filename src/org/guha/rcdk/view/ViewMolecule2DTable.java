@@ -1,10 +1,10 @@
 package org.guha.rcdk.view;
 
 import org.guha.rcdk.util.Misc;
-import org.guha.rcdk.view.panels.Render2DPanel;
 import org.guha.rcdk.view.table.StructureTableCellEditor2D;
 import org.guha.rcdk.view.table.StructureTableCellRenderer2D;
 import org.guha.rcdk.view.table.StructureTableModel;
+import org.guha.rcdk.view.panels.MoleculeCell;
 import org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -72,13 +72,13 @@ class StructureTable2D {
         int cnt = 0;
         for (i = 0; i < nrow; i++) {
             for (j = 1; j < this.ncol + 1; j++) {
-                ndata[i][j] = new Render2DPanel(v[cnt], null, this.cellx, this.celly, this.withHydrogen);
+                ndata[i][j] = new MoleculeCell(v[cnt], this.cellx, this.celly);
                 cnt += 1;
             }
         }
         j = 1;
         while (cnt < v.length) {
-            ndata[nrow][j] = new Render2DPanel(v[cnt], null, this.cellx, this.celly, this.withHydrogen);
+            ndata[nrow][j] = new MoleculeCell(v[cnt], this.cellx, this.celly);
             cnt += 1;
             j += 1;
         }

@@ -1,8 +1,7 @@
 package org.guha.rcdk.view;
 
 import org.guha.rcdk.util.Misc;
-import org.guha.rcdk.view.panels.JmolPanel;
-import org.guha.rcdk.view.panels.Render2DPanel;
+import org.guha.rcdk.view.panels.MoleculeCell;
 import org.guha.rcdk.view.table.MyTable;
 import org.guha.rcdk.view.table.StructureTableCellEditor2D;
 import org.guha.rcdk.view.table.StructureTableCellRenderer2D;
@@ -108,7 +107,7 @@ public class ViewMolecule2DDataTable {
             } catch (Exception e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
-            data[i][0] = new Render2DPanel(molecules[i], null, this.cellx, this.celly, false);
+            data[i][0] = new MoleculeCell(molecules[i], this.cellx, this.celly);
         }
         // set the data
         for (int i = 0; i < molecules.length; i++) {
@@ -232,7 +231,7 @@ public class ViewMolecule2DDataTable {
         }
     }
 
-    static class Render2DPanelCellRenderer extends JmolPanel implements
+    static class Render2DPanelCellRenderer extends JPanel implements
             TableCellRenderer {
 
         private static final long serialVersionUID = 3990689120717795379L;
@@ -241,7 +240,7 @@ public class ViewMolecule2DDataTable {
                                                        Object value, boolean isSelected, boolean hasFocus,
                                                        int rowIndex, int vColIndex) {
             // return plist[rowIndex];
-            return (Render2DPanel) value;
+            return (MoleculeCell) value;
         }
 
         // The following methods override the defaults for performance reasons

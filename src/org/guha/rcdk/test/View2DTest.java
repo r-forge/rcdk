@@ -4,11 +4,13 @@ import junit.framework.TestCase;
 import org.guha.rcdk.util.Misc;
 import org.guha.rcdk.view.ViewMolecule2D;
 import org.guha.rcdk.view.ViewMolecule2DTable;
+import org.guha.rcdk.view.panels.MoleculeCell;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.smiles.SmilesParser;
 
+import javax.swing.JFrame;
 import java.io.IOException;
 
 /**
@@ -18,6 +20,16 @@ import java.io.IOException;
 public class View2DTest extends TestCase {
     String home = "/Users/rguha/";
 
+
+    public void testMoleculeCell() throws Exception {
+        SmilesParser sp = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        IAtomContainer container = sp.parseSmiles("C1CN2CCN(CCCN(CCN(C1)Cc1ccccn1)CC2)C");
+        MoleculeCell mcell = new MoleculeCell(container, 200,200);
+        JFrame frame= new JFrame("Molecule Cell");
+        frame.getContentPane().add(mcell);
+        frame.pack();
+        frame.setVisible(true);
+    }
     public void testView2DFromSmiles() throws Exception {
         SmilesParser sp = new SmilesParser(DefaultChemObjectBuilder.getInstance());
         IAtomContainer container = sp.parseSmiles("C1CN2CCN(CCCN(CCN(C1)Cc1ccccn1)CC2)C");

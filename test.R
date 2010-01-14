@@ -1,8 +1,11 @@
 
-library(rJava)
 library(fingerprint)
 library(rcdklibs)
+.jinit(classpath=c('rcdk.jar', '/Users/guhar/src/rcdklibs/pkg/inst/cont/cdk.jar', '/Users/guhar/src/rcdklibs/pkg/inst/cont/jcp.jar'),
+       parameters="-Djava.awt.headless=TRUE")
+
 .jinit(classpath=c('rcdk.jar'))
+
 source('pkg/R/rcdk.R')
 
 source('pkg/R/visual.R')
@@ -14,11 +17,17 @@ source('pkg/R/bonds.R')
 source('pkg/R/formula.R')
 source('pkg/R/desc.R')
 source('pkg/R/matching.R')
-mfSet <- generate.formula(18.03383,charge=1,
-                          elements=list(c("C",0,50),c("H",0,50),c("N",0,50)))
+
+# check the class path
+.jcall("java/lang/System","S","getProperty","java.class.path")
 
 m <- parse.smiles('CCC')
 get.smiles(m)
+view.molecule.2d(m)
+
+mfSet <- generate.formula(18.03383,charge=1,
+                          elements=list(c("C",0,50),c("H",0,50),c("N",0,50)))
+
 
 data(bpdata)
 mols <- sapply(bpdata$SMILES, parse.smiles)

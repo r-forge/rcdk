@@ -22,7 +22,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/jars/cdk-jchempaint.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/cdk.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -31,19 +31,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/jars/Jmol.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../../java/jmol/trunk/Jmol/src" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="Deps" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/jars/cdk.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/jcp.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
