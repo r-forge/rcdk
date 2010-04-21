@@ -90,7 +90,7 @@ public class MiscTest extends TestCase {
 
     public void testjunk() throws FileNotFoundException, CDKException, CloneNotSupportedException {
         ISimpleChemObjectReader reader = new MDLV2000Reader(new FileReader("/Users/rguha/tmp/frog.sdf"));
-        IChemFile content = (IChemFile) reader.read(DefaultChemObjectBuilder.getInstance().newChemFile());
+        IChemFile content = (IChemFile) reader.read(DefaultChemObjectBuilder.getInstance().newInstance(IChemFile.class));
         List<IAtomContainer> c = ChemFileManipulator.getAllAtomContainers(content);
 
         IAtomContainer m1 = c.get(0);
@@ -114,7 +114,7 @@ public class MiscTest extends TestCase {
     }
 
     public static IAtomContainer getneedle(IAtomContainer a, IAtomContainer q) throws CDKException {
-        IAtomContainer needle = DefaultChemObjectBuilder.getInstance().newAtomContainer();
+        IAtomContainer needle = DefaultChemObjectBuilder.getInstance().newInstance(IAtomContainer.class);
         Vector idlist = new Vector();
 
         List l = UniversalIsomorphismTester.getSubgraphMaps(a, q);
@@ -129,6 +129,13 @@ public class MiscTest extends TestCase {
             needle.addBond(a.getBond(((Integer) i.next()).intValue()));
         }
         return needle;
+    }
+
+    public void testExactMass() throws InvalidSmilesException {
+        SmilesParser sp = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        IAtomContainer mol = sp.parseSmiles("CCCCCCC");
+        double d = AtomContainerManipulator.getTotalExactMass(mol);
+        System.out.println("d = " + d);
     }
 
 }
