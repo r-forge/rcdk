@@ -10,6 +10,7 @@ import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IChemFile;
 import org.openscience.cdk.interfaces.IMolecule;
+import org.openscience.cdk.interfaces.IChemObjectBuilder;
 import org.openscience.cdk.io.ISimpleChemObjectReader;
 import org.openscience.cdk.io.ReaderFactory;
 import org.openscience.cdk.io.SDFWriter;
@@ -121,7 +122,7 @@ public class Misc {
                                                  boolean doTyping,
                                                  boolean doIsotopes) throws CDKException, IOException {
         Vector<IAtomContainer> v = new Vector<IAtomContainer>();
-        DefaultChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();
+        IChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();
         try {
             int i;
             int j;
@@ -136,7 +137,7 @@ public class Misc {
                         reader = new SMILESReader(new FileReader(input));
                     }
                 }
-                IChemFile content = (IChemFile) reader.read(builder.newChemFile());
+                IChemFile content = (IChemFile) reader.read(builder.newInstance(IChemFile.class));
                 if (content == null) continue;
 
                 List<IAtomContainer> c = ChemFileManipulator.getAllAtomContainers(content);

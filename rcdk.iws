@@ -21,8 +21,12 @@
     <list default="true" readonly="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.pdf" afterPath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.Rnw" afterPath="$PROJECT_DIR$/pkg.Rcheck/rcdk/doc/rcdk.Rnw" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcdk.iws" afterPath="$PROJECT_DIR$/rcdk.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" afterPath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" afterPath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.Rnw" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.pdf" afterPath="$PROJECT_DIR$/pkg.Rcheck/inst/doc/rcdk.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/util/Misc.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/util/Misc.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/R/smiles.R" afterPath="$PROJECT_DIR$/pkg/R/smiles.R" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="rcdk.iws" />
@@ -84,7 +88,16 @@
       <file leaf-file-name="MiscTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/test/MiscTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="6" selection-start="5634" selection-end="5634" vertical-scroll-proportion="0.8891304">
+            <state line="121" column="74" selection-start="4998" selection-end="4998" vertical-scroll-proportion="0.34888887">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Misc.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/util/Misc.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="139" column="95" selection-start="5717" selection-end="5717" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -602,16 +615,16 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24854228" sideWeight="0.6621438" order="0" side_tool="false" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24854228" sideWeight="0.6689281" order="0" side_tool="false" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971507" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24632068" sideWeight="0.660787" order="1" side_tool="false" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32157394" sideWeight="0.5" order="8" side_tool="false" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32157394" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08365608" sideWeight="0.6603221" order="1" side_tool="false" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08309038" sideWeight="0.6689281" order="1" side_tool="false" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283582" sideWeight="0.5" order="2" side_tool="false" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="2" side_tool="false" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39824304" sideWeight="0.5" order="4" side_tool="false" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971507" sideWeight="0.5" order="8" side_tool="false" />
@@ -718,13 +731,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/descriptors/DescriptorUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="89" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/test/DescTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="39" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
@@ -823,9 +829,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/util/Misc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="139" column="95" selection-start="5717" selection-end="5717" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/test/MiscTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="6" selection-start="5634" selection-end="5634" vertical-scroll-proportion="0.8891304">
+        <state line="121" column="74" selection-start="4998" selection-end="4998" vertical-scroll-proportion="0.34888887">
           <folding />
         </state>
       </provider>
