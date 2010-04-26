@@ -1,4 +1,4 @@
-match <- function(query, targets) {
+matches <- function(query, targets) {
   if (!is.list(targets)) targets <- list(targets)
   if (!all(unlist(lapply(targets, class)) == 'jobjRef'))
     stop("targets must be a list of IAtomContainer objects or a single IAtomContainer object")

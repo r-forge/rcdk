@@ -1,5 +1,7 @@
-\name{match}
+\name{matches}
 \alias{match}
+\alias{matches}
+\alias{smarts}
 \title{
   Perform Substructure Searching	
 }
@@ -8,7 +10,7 @@ This function performs substructure searches of a query, specified
 in SMILES or SMARTS forms, over one or more target molecules.
 }
 \usage{
-match(query, targets) 
+matches(query, targets) 
 }
 \arguments{
   \item{query}{A SMILES or SMARTS string}
