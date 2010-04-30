@@ -9,32 +9,16 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library>
+      <library name="rcdk-deps">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/jars/junit.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/cdk.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/com.objectplanet.image.PngEncoder.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/cdk-jchempaint-8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/jars/Jmol.jar!/" />
+          <root url="file://$MODULE_DIR$/../cdk/src/main" />
         </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/jars/cdk.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/jars/jcp.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
       </library>
     </orderEntry>
   </component>

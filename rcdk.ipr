@@ -22,7 +22,7 @@
   <component name="CodeStyleSettingsManager">
     <option name="PER_PROJECT_SETTINGS">
       <value>
-        <ADDITIONAL_INDENT_OPTIONS fileType="">
+        <ADDITIONAL_INDENT_OPTIONS fileType="java">
           <option name="INDENT_SIZE" value="4" />
           <option name="CONTINUATION_INDENT_SIZE" value="8" />
           <option name="TAB_SIZE" value="4" />
@@ -31,7 +31,7 @@
           <option name="LABEL_INDENT_SIZE" value="0" />
           <option name="LABEL_INDENT_ABSOLUTE" value="false" />
         </ADDITIONAL_INDENT_OPTIONS>
-        <ADDITIONAL_INDENT_OPTIONS fileType="java">
+        <ADDITIONAL_INDENT_OPTIONS fileType="jsp">
           <option name="INDENT_SIZE" value="4" />
           <option name="CONTINUATION_INDENT_SIZE" value="8" />
           <option name="TAB_SIZE" value="4" />
@@ -349,11 +349,12 @@
     <library name="Deps">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/jars/cdk.jar!/" />
-        <root url="jar://$PROJECT_DIR$/jars/jcp.jar!/" />
+        <root url="jar://$PROJECT_DIR$/jars/com.objectplanet.image.PngEncoder.jar!/" />
+        <root url="jar://$PROJECT_DIR$/jars/cdk-jchempaint-8.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/../../../java/cdk/src/main" />
+        <root url="file://$PROJECT_DIR$/../cdk/src/main" />
       </SOURCES>
     </library>
   </component>

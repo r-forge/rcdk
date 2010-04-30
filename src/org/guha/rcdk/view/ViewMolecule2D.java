@@ -13,7 +13,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 
-public class ViewMolecule2D extends JFrame {
+public class    ViewMolecule2D extends JFrame {
     IAtomContainer molecule;
 
     MoleculeCell panel;

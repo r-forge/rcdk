@@ -4,14 +4,14 @@ import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.smiles.SmilesParser;
 import org.openscience.cdk.DefaultChemObjectBuilder;
+import org.openscience.cdk.renderer.Renderer;
+import org.openscience.cdk.renderer.visitor.AWTDrawVisitor;
+import org.openscience.cdk.renderer.font.AWTFontManager;
+import org.openscience.cdk.renderer.generators.IGenerator;
+import org.openscience.cdk.renderer.generators.RingGenerator;
+import org.openscience.cdk.renderer.generators.BasicAtomGenerator;
 import org.openscience.cdk.layout.StructureDiagramGenerator;
 import org.openscience.cdk.exception.InvalidSmilesException;
-import org.openscience.jchempaint.renderer.generators.IGenerator;
-import org.openscience.jchempaint.renderer.generators.RingGenerator;
-import org.openscience.jchempaint.renderer.generators.BasicAtomGenerator;
-import org.openscience.jchempaint.renderer.font.AWTFontManager;
-import org.openscience.jchempaint.renderer.visitor.AWTDrawVisitor;
-import org.openscience.jchempaint.renderer.Renderer;
 
 import javax.swing.JPanel;
 import javax.swing.BorderFactory;
@@ -53,7 +53,7 @@ public class MoleculeCell extends JPanel {
         generators.add(new RingGenerator());
         generators.add(new BasicAtomGenerator());
 
-        this.renderer = new org.openscience.jchempaint.renderer.Renderer(generators, new AWTFontManager());
+        this.renderer = new Renderer(generators, new AWTFontManager());
         isNew = true;
     }
 
