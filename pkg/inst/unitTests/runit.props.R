@@ -10,7 +10,7 @@ test.get.properties <- function() {
   set.property(m, "baz", 1.23)  
   props <- get.properties(m)
   checkEquals(length(props), 2)
-  checkTrue(all(names(props) == c('foo','baz')))
-  checkEquals(props[[1]],'bar')
-  checkEquals(props[[2]],1.23)  
+  checkTrue(all(sort(names(props)) == c('baz','foo')))
+  checkEquals(props$foo,'bar')
+  checkEquals(props$baz,1.23)  
 }
