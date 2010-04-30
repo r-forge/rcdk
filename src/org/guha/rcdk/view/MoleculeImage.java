@@ -1,4 +1,4 @@
-package org.guha.rcdk.view.table;
+package org.guha.rcdk.view;
 
 import com.objectplanet.image.PngEncoder;
 import org.guha.rcdk.util.Misc;
