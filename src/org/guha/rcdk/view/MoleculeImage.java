@@ -33,13 +33,8 @@ import java.util.List;
  */
 public class MoleculeImage {
     private IAtomContainer molecule;
-    private int width, height;
 
     public MoleculeImage(IAtomContainer molecule) throws Exception {
-        this(molecule, 300, 300);
-    }
-
-    public MoleculeImage(IAtomContainer molecule, int width, int height) throws Exception {
         if (!ConnectivityChecker.isConnected(molecule)) throw new CDKException("Molecule must be connected");
         molecule = AtomContainerManipulator.removeHydrogens(molecule);
         try {
@@ -48,11 +43,9 @@ public class MoleculeImage {
             throw new Exception("Error in aromatcity detection");
         }
         this.molecule = Misc.getMoleculeWithCoordinates(molecule);
-        this.width = width;
-        this.height = height;
     }
 
-    public byte[] getBytes() throws IOException {
+    public byte[] getBytes(int width, int height) throws IOException {
 
         Rectangle drawArea = new Rectangle(width, height);
         Image image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -85,8 +78,8 @@ public class MoleculeImage {
         SmilesParser sp = new SmilesParser(DefaultChemObjectBuilder.getInstance());
         IAtomContainer mol = sp.parseSmiles("c1ccccc1CC(=O)C1COCNC1");
 
-        MoleculeImage mi = new MoleculeImage(mol, 300, 300);
-        byte[] bytes = mi.getBytes();
+        MoleculeImage mi = new MoleculeImage(mol);
+        byte[] bytes = mi.getBytes(300, 300);
         FileOutputStream fos = new FileOutputStream("test.png");
         fos.write(bytes);
     }
