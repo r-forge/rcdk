@@ -18,7 +18,12 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" name="Default" comment="" />
+    <list default="true" readonly="true" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcdk.iws" afterPath="$PROJECT_DIR$/rcdk.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/DESCRIPTION" afterPath="$PROJECT_DIR$/pkg/DESCRIPTION" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" afterPath="$PROJECT_DIR$/pkg/inst/cont/rcdk.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/guha/rcdk/view/table/MoleculeImage.java" afterPath="$PROJECT_DIR$/src/org/guha/rcdk/view/table/MoleculeImage.java" />
+    </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="rcdk.iws" />
   </component>
@@ -37,7 +42,7 @@
   </component>
   <component name="DebuggerManager">
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/org/guha/rcdk/view/table/MoleculeImage.java" line="84" class="org.guha.rcdk.view.table.MoleculeImage" package="org.guha.rcdk.view.table">
+      <breakpoint url="file://$PROJECT_DIR$/src/org/guha/rcdk/view/table/MoleculeImage.java" line="68" class="org.guha.rcdk.view.table.MoleculeImage" package="org.guha.rcdk.view.table">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -109,22 +114,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoleculeImage.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MoleculeImage.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/table/MoleculeImage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="7" selection-start="3675" selection-end="3675" vertical-scroll-proportion="0.0">
+            <state line="50" column="66" selection-start="1939" selection-end="1939" vertical-scroll-proportion="1.5706806">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="62" selection-start="1723" selection-end="1723" vertical-scroll-proportion="0.6694215">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -657,19 +653,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/table/MoleculeImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="7" selection-start="3675" selection-end="3675" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="62" selection-start="1723" selection-end="1723" vertical-scroll-proportion="0.6694215">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/table/MoleculeImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="66" selection-start="1939" selection-end="1939" vertical-scroll-proportion="1.5706806">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
