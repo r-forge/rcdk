@@ -20,7 +20,8 @@ require(rJava, quietly=TRUE)
   }
 
   jar.rcdk <- paste(lib,pkg,"cont","rcdk.jar",sep=.Platform$file.sep)
-  .jinit(classpath=c(jar.rcdk))
+  jar.png <- paste(lib,pkg,"cont","com.objectplanet.image.PngEncoder.jar",sep=.Platform$file.sep)
+  .jinit(classpath=c(jar.rcdk,jar.png))
 }
 
 
