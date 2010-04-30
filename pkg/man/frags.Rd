@@ -1,5 +1,6 @@
 \name{get.fragmenter}
 \alias{fragment}
+\alias{get.fragmenter}
 \alias{get.murcko.fragments}
 \title{
   Molecule Fragmentation Methods
