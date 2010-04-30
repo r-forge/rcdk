@@ -59,6 +59,18 @@ get.exact.mass <- function(molecule) {
          molecule);
 }
 
+get.natural.mass <- function(molecule) {
+  if (is.null(attr(molecule, 'jclass')) ||
+      attr(molecule, "jclass") != "org/openscience/cdk/interfaces/IAtomContainer") {
+    stop("Must supply an IAtomContainer object")
+  }
+  .jcall('org/openscience/cdk/tools/manipulator/AtomContainerManipulator',
+         'D',
+         'getNaturalExactMass',
+         molecule);
+}
+
+
 get.total.charge <- function(molecule) {
   if (is.null(attr(molecule, 'jclass')) ||
       attr(molecule, "jclass") != "org/openscience/cdk/interfaces/IAtomContainer") {
