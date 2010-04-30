@@ -101,7 +101,7 @@
       <file leaf-file-name="MoleculeImage.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/MoleculeImage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="2334" selection-end="2334" vertical-scroll-proportion="0.5968586">
+            <state line="55" column="34" selection-start="2163" selection-end="2163" vertical-scroll-proportion="1.7277486">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -623,7 +623,7 @@
     <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some minor cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Brought back the bond rendering code" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
@@ -644,6 +644,8 @@
     <MESSAGE value="Uodated to correctly use SDFWriter" />
     <MESSAGE value="Temporary fix for a descriptor that doesn't have a decs class" />
     <MESSAGE value="Some minor cleanup" />
+    <MESSAGE value="Made the molecule image method a little more general" />
+    <MESSAGE value="Brought back the bond rendering code" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -810,7 +812,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/guha/rcdk/view/MoleculeImage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="2334" selection-end="2334" vertical-scroll-proportion="0.5968586">
+        <state line="55" column="34" selection-start="2163" selection-end="2163" vertical-scroll-proportion="1.7277486">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
