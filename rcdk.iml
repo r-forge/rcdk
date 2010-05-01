@@ -14,6 +14,7 @@
           <root url="jar://$MODULE_DIR$/jars/cdk.jar!/" />
           <root url="jar://$MODULE_DIR$/jars/com.objectplanet.image.PngEncoder.jar!/" />
           <root url="jar://$MODULE_DIR$/jars/cdk-jchempaint-8.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/junit.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>

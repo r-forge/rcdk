@@ -7,7 +7,8 @@ import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.interfaces.IMoleculeSet;
 import org.openscience.cdk.layout.StructureDiagramGenerator;
 
-import javax.swing.*;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -30,9 +31,9 @@ public class Get2DStructureFromJCP {
             exc.printStackTrace();
         }
 
-        IMoleculeSet som = DefaultChemObjectBuilder.getInstance().newMoleculeSet();
+        IMoleculeSet som = DefaultChemObjectBuilder.getInstance().newInstance(IMoleculeSet.class);
         som.addMolecule(localMolecule);
-        chemModel = DefaultChemObjectBuilder.getInstance().newChemModel();
+        chemModel = DefaultChemObjectBuilder.getInstance().newInstance(IChemModel.class);
         chemModel.setMoleculeSet(som);
     }
 
