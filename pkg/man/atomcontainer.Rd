@@ -25,7 +25,7 @@ convert.implicit.to.explicit(molecule)
   \item{molecule}{A \code{jObjRef} representing an IAtomContainer or IMolecule object}
 }
 \value{
-	\code{exact.mass} returns a numeric
+	\code{get.exact.mass} returns a numeric
 
 	\code{get.natural.mass} returns a numeric
 
